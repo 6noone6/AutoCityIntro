@@ -846,6 +846,7 @@ def tools_node(state: CityAgentState) -> Dict[str, Any]:
 
 
 def finalize_node(state: CityAgentState) -> Dict[str, Any]:
+    user_text = state.get("user_text", "")
     messages = state.get("messages") or []
     final = ""
     for msg in reversed(messages):
@@ -888,7 +889,6 @@ def finalize_node(state: CityAgentState) -> Dict[str, Any]:
 
     device_id = state.get("device_id", "default")
     profile = user_profile.get_or_create_profile(device_id)
-    user_text = state.get("user_text", "")
     user_profile.record_query_topic(profile, user_text)
     user_profile.update_preferences_from_text(profile, user_text)
     city = (state.get("query_city") or "").strip()
