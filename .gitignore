@@ -1,0 +1,27 @@
+# 敏感配置：仅本地保留，切勿提交
+.env
+# 配置模板可提交（脱敏，供团队参考）
+!.env.example
+
+# 操作系统 / 编辑器
+.DS_Store
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 运行产物
+data/audio/
+data/images/
+data/cache/
+data/sessions/
+data/profiles/
+data/trips/
+data/shares/
+# LangGraph checkpointer 运行时数据库
+data/checkpoints.db
+data/checkpoints.db-shm
+data/checkpoints.db-wal
