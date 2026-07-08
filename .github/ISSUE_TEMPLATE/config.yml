@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 贡献指南
+    url: https://github.com/6noone6/AutoCityIntro/blob/main/CONTRIBUTING.md
+    about: 了解如何参与开发、提交 PR
+  - name: 安全报告
+    url: https://github.com/6noone6/AutoCityIntro/blob/main/SECURITY.md
+    about: 漏洞请私下报告，勿公开 Issue

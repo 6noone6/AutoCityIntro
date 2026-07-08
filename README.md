@@ -1,9 +1,16 @@
 # AutoCityIntro · 智能城市助手
 
+[![CI](https://github.com/6noone6/AutoCityIntro/actions/workflows/ci.yml/badge.svg)](https://github.com/6noone6/AutoCityIntro/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![LangGraph](https://img.shields.io/badge/LangGraph-Agent-orange.svg)](https://github.com/langchain-ai/langgraph)
+[![MCP](https://img.shields.io/badge/MCP-Tools-green.svg)](https://modelcontextprotocol.io/)
+
 一个基于 **LangGraph + LangChain + FastAPI + MCP** 的智能城市伴游助手。通过自然语言对话即可完成城市景点推荐、周边探索、路线规划、实时路况、行程编排、语音播报与图像生成等任务，前端提供流式聊天、地图、语音、分享等完整体验。
 
----
+**在线体验**：克隆仓库后本地运行，访问 http://localhost:7003
 
+---
 ## ✨ 功能特性
 
 - **多 Agent 协同**：Supervisor 调度 7 个专职子 Agent，按意图自动路由
@@ -92,9 +99,12 @@ AutoCityIntro/
 ├── requirements.txt
 ├── .env.example            # 配置模板（见下文）
 ├── .gitignore
+├── LICENSE                 # MIT 许可证
+├── CONTRIBUTING.md         # 贡献指南
+├── SECURITY.md             # 安全策略
+├── tests/                  # 冒烟测试
 └── RUNTIME.md              # 运行环境补充说明
 ```
-
 ---
 
 ## 🚀 快速开始
@@ -114,10 +124,13 @@ pip install -r requirements.txt
 
 ### 2. 配置 `.env`
 
-在项目根目录创建 `.env`，填入必要的 API Key：
+在项目根目录复制配置模板并填入真实值：
 
-```dotenv
-# 大模型（OpenAI 兼容接口，默认 Kimi/Moonshot）
+```bash
+cp .env.example .env
+```
+
+```dotenv# 大模型（OpenAI 兼容接口，默认 Kimi/Moonshot）
 OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxx
 OPENAI_BASE_URL=https://api.moonshot.cn/v1
 OPENAI_MODEL=kimi-k2.6
@@ -243,7 +256,20 @@ python run_all.py
 
 # 安装依赖
 pip install -r requirements.txt
+
+# 运行测试
+pytest -q
 ```
+
+---
+
+## 🤝 参与贡献
+
+欢迎提交 Issue 与 Pull Request！请先阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+- [报告 Bug](https://github.com/6noone6/AutoCityIntro/issues/new?template=bug_report.yml)
+- [功能建议](https://github.com/6noone6/AutoCityIntro/issues/new?template=feature_request.yml)
+- [安全报告](SECURITY.md)
 
 ---
 
@@ -254,3 +280,9 @@ pip install -r requirements.txt
 - 启动前请确认端口 `7001` / `7003` 未被占用；Windows 下 `run_all.py` 会尝试自动释放，macOS/Linux 需手动处理
 - 若使用 SOCKS 代理，依赖中已包含 `socksio` 以支持 httpx 连接 OpenAI 兼容接口
 - 更多运行环境细节参见 `RUNTIME.md`
+
+---
+
+## 📄 许可证
+
+本项目采用 [MIT License](LICENSE) 开源。
